@@ -1,0 +1,47 @@
+{
+    "type": "object",
+    "properties": {
+        "int": {
+            "type": "integer"
+        },
+        "float": {
+            "type": "float"
+        },
+        "arr-of-str": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "arr": {
+            "type": "array",
+            "items": {}
+        },
+        "arr-of-arr-of-obj": {
+            "type": "array",
+            "items": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "prop1": {
+                            "type": "string"
+                        },
+                        "prop2": {
+                            "type": "float"
+                        },
+                        "prop3": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "arr-of-phones": {
+            "type": "array",
+            "items": {
+                "type": "phone"
+            }
+        }
+    }
+}

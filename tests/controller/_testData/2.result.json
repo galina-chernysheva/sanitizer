@@ -1,0 +1,23 @@
+{
+    "errors": [
+        "obj[objProp1]: Value is not integer",
+        "obj[objProp3][5]: Value is not string",
+        "arrFloat: Value is not indexed array",
+        "objInt[2018-01-31]: Value is not integer"
+    ],
+    "data": {
+        "obj": {
+            "objProp1": "not integer",
+            "objProp2": "79001234567",
+            "objProp3": ["this", "is", "array", "of", "strings", []]
+        },
+        "arrFloat": 1.1,
+        "str": "just single string",
+        "arr": ["no", "matter", "what", "is", "in", 1, ["hello!"], {"even": "object"}],
+        "objInt": {
+            "2018-01-31": -18.12,
+            "2018-02-01": -17,
+            "2018-02-02": -12
+        }
+    }
+}

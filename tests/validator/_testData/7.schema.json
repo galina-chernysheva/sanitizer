@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "obj": {
+            "type": "object",
+            "properties": {
+                "prop1": "integer",
+                "prop2": "integer",
+                "prop3": "phone",
+                "prop4": "float"
+            }
+        }
+    }
+}

@@ -1,0 +1,15 @@
+{
+    "obj": {
+        "objProp1": "not integer",
+        "objProp2": "+7 (900) 123 45 67",
+        "objProp3": ["this", "is", "array", "of", "strings", []]
+    },
+    "arrFloat": 1.1,
+    "str": "just single string",
+    "arr": ["no", "matter", "what", "is", "in", 1, ["hello!"], {"even": "object"}],
+    "objInt": {
+        "2018-01-31": -18.12,
+        "2018-02-01": -17,
+        "2018-02-02": -12
+    }
+}

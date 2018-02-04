@@ -1,0 +1,18 @@
+{
+    "errors": [],
+    "data": {
+        "obj": {
+            "objProp1": 111,
+            "objProp2": "79001234567",
+            "objProp3": ["this", "is", "array", "of", "strings"]
+        },
+        "arrFloat": [1.1, -2.22, 3.33, 10000000.0],
+        "str": "just single string",
+        "arr": ["no", "matter", "what", "is", "in", 1, ["hello!"], {"even": "object"}],
+        "objInt": {
+            "2018-01-31": -18,
+            "2018-02-01": -17,
+            "2018-02-02": -12
+        }
+    }
+}

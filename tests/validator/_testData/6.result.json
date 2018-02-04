@@ -1,0 +1,14 @@
+{
+    "errors": [],
+    "data": {
+        "int": -123,
+        "float": 123.45,
+        "arr-of-str": ["  string", "true", "1", "0.2e+7", "8 (000) 111-22-33"],
+        "arr": [1, "string", 20000, "", [0, 1, 2], null, {"01.02.2018": "-13", "02.02.2018": -15}],
+        "arr-of-arr-of-obj": [
+            [{"prop1": "some string", "prop2": 0.001, "prop3": 123}, {"prop1": "hello", "prop2": 3.14159, "prop3": 0}],
+            [null, {"prop1": "again string", "prop2": 42.42, "prop3": 42}]
+        ],
+        "arr-of-phones": [null, "70001112233", "79001234567", "79004445566"]
+    }
+}
