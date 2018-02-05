@@ -39,64 +39,64 @@ class JsonSchemaValidator
     }
 
     /**
-     * Validation json string $rawData according $schema which describes data structure and types of values
+     * Validation JSON string $rawData according $schema which describes data structure and types of values
      *
      * schema sample:
-     * [
-     *      'type' => 'object',
-     *      'properties': [
-     *          'obj' => [                      // this is associative array with known keys and known its types
-     *              'type' => 'object',
-     *              'properties' => [
-     *                  'objProp1' => [
-     *                      'type' => 'integer'
-     *                  ],
-     *                  'objProp2' => [
-     *                      'type' => 'phone'
-     *                  ],
-     *                  'objProp3' => [         // this property type is array of strings
-     *                      'type' => 'array',
-     *                      'items' => [
-     *                          'type' => 'string'
-     *                      ]
-     *                  ]
-     *              ]
-     *          ],
-     *          'arrFloat' => [                 // this param type is array of floats
-     *              'type' => 'array'
-     *              'items' => [
-     *                  'type' => 'float'
-     *              ]
-     *          ],
-     *          'str' => [
-     *              'type' => 'string'
-     *          ],
-     *          'arr' => [                      // we know that this param type is array, but we don't know or don't care which type it's values of
-     *              'type' => 'array',
-     *          ],
-     *          'objInt' => [                   // this is associative array with unknown keys (missed "properties"), but known type of all it's values
-     *              'type' => 'object',
-     *              'items' => [
-     *                  'type' => 'integer'
-     *              ]
-     *          ]
-     *      ]
-     * ]
-     *
-     * json data sample for the above schema:
      * {
-     *      'obj': {
-                'objProp1': 111,
-     *          'objProp2': '+7 (900) 123 45 67',
-     *          'objProp3': ['this', 'is', 'array', 'of', 'strings']
+     *      "type": "object",
+     *      "properties": {
+     *          "obj": {                      // this is associative array with known keys and known its types
+     *              "type": "object",
+     *              "properties": {
+     *                  "objProp1": {
+     *                      "type": "integer"
+     *                  },
+     *                  "objProp2": {
+     *                      "type": "phone"
+     *                  },
+     *                  "objProp3": {         // this property type is array of strings
+     *                      "type": "array",
+     *                      "items": {
+     *                          "type": "string"
+     *                      }
+     *                  }
+     *              }
+     *          },
+     *          "arrFloat": {                 // this param type is array of floats
+     *              "type": "array"
+     *              "items": {
+     *                  "type": "float"
+     *              }
+     *          },
+     *          "str": {
+     *              "type": "string"
+     *          },
+     *          "arr": {                      // we know that this param type is array, but we don"t know or don"t care which type it"s values of
+     *              "type": "array",
+     *          },
+     *          "objInt": {                   // this is associative array with unknown keys (missed "properties"), but known type of all it"s values
+     *              "type": "object",
+     *              "items": {
+     *                  "type": "integer"
+     *              }
+     *          }
+     *      }
+     * }
+     *
+     * JSON data sample for the above schema:
+     * {
+     *      "obj": {
+                "objProp1": 111,
+     *          "objProp2": "+7 (900) 123 45 67",
+     *          "objProp3": ["this", "is", "array", "of", "strings"]
      *      },
-     *      'arrFloat': [1.1, -2.22, '3.33', '1e7'],
-     *      'str': 'just single string',
-     *      'arr': ['no', 'matter', 'what', 'is', 'in', 1, ['hello!'], {'even': 'object'}],
-     *      'objInt': {
-     *          '2018-01-31': -18,
-     *          '2018-02-01': -17,
-     *          '2018-02-02': -12
+     *      "arrFloat": [1.1, -2.22, "3.33", "1e7"],
+     *      "str": "just single string",
+     *      "arr": ["no", "matter", "what", "is", "in", 1, ["hello!"], {"even": "object"}],
+     *      "objInt": {
+     *          "2018-01-31": -18,
+     *          "2018-02-01": -17,
+     *          "2018-02-02": -12
      *      }
      * }
      *
@@ -204,7 +204,7 @@ class JsonSchemaValidator
         if (!is_array($itemsDescr)) {
             throw new JsonSchemaValidationException(
                 (!is_null($paramName) ? "{$paramName}: " : '') .
-                'The type description of values must be an array of form [type => .., properties?: {..}, items? => [..]].'
+                'The "items" must be an object of the form { "type": .., ?"properties": { ... }, ?"items": { ... } }.'
             );
         }
 
@@ -248,7 +248,7 @@ class JsonSchemaValidator
             if (!is_array($itemsDescr)) {
                 throw new JsonSchemaValidationException(
                     (!is_null($paramName) ? "{$paramName}: " : '') .
-                    'The type description of properties values must be an array of form [type => .., properties?: {..}, items? => [..]].'
+                    'The "items" must be an object of the form { "type": .., ?"properties": { ... }, ?"items": { ... } }.'
                 );
             }
 
@@ -270,7 +270,7 @@ class JsonSchemaValidator
                 if (!is_array($propSchema)) {
                     throw new JsonSchemaValidationException(
                         "{$propParamName}: " .
-                        'The type description of property value must be an array of form [type => .., properties?: {..}, items? => [..]].'
+                        'The type description of property value must be an object of the form { "type": .., ?"properties": { ... }, ?"items": { ... } }.'
                     );
                 }
                 $this->_validateType($propSchema, $value->$propName, $errors, $propParamName);

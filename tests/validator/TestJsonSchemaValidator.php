@@ -51,7 +51,7 @@ class TestJsonSchemaValidator
             'phone' => RuPhoneNumberTypeValidator::class
         ];
 
-        print "-- 1: data as invalid json\n";
+        print "-- 1: data as invalid JSON\n";
         self::testValidate(1, []);
 
         print "-- 2: empty schema\n";

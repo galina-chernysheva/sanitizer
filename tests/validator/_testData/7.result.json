@@ -1,1 +1,1 @@
-"obj[prop1]: The type description of property value must be an array of form [type => .., properties?: {..}, items? => [..]]."
+"obj[prop1]: The type description of property value must be an object of the form { \"type\": .., ?\"properties\": { ... }, ?\"items\": { ... } }."

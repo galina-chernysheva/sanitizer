@@ -16,7 +16,7 @@ tTests\TestAssocArrayTypeValidator::run();
 
 print "\n\n";
 
-print "Tests for json schema validator\n";
+print "Tests for JSON schema validator\n";
 vTests\TestJsonSchemaValidator::run();
 
 print "\n\n";

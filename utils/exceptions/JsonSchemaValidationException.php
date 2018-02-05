@@ -4,7 +4,7 @@ namespace utils\exceptions;
 
 
 /**
- * Exception class for json schema validation errors
+ * Exception class for JSON schema validation errors
  * Class JsonSchemaValidationException
  * @package utils\exceptions
  */
