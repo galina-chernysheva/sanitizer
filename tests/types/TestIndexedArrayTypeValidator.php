@@ -13,7 +13,7 @@ use utils\validators\types\base\IndexedArrayTypeValidator;
 class TestIndexedArrayTypeValidator extends BaseTestTypeValidator
 {
     protected static $typeClass = IndexedArrayTypeValidator::class;
-    private static $_expectedFailMsg = 'Value is not indexed array';
+    private static $_expectedFailMsg = 'Value is not an indexed array.';
 
     /**
      * @inheritdoc

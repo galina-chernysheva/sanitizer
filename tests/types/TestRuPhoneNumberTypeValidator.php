@@ -13,7 +13,7 @@ use utils\validators\types\RuPhoneNumberTypeValidator;
 class TestRuPhoneNumberTypeValidator extends BaseTestTypeValidator
 {
     protected static $typeClass = RuPhoneNumberTypeValidator::class;
-    private static $_expectedFailMsg = 'Value is not phone number (RU)';
+    private static $_expectedFailMsg = 'Value is not a phone number (RU).';
 
     /**
      * @inheritdoc

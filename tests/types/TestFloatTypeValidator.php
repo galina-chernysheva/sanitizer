@@ -13,7 +13,7 @@ use utils\validators\types\base\FloatTypeValidator;
 class TestFloatTypeValidator extends BaseTestTypeValidator
 {
     protected static $typeClass = FloatTypeValidator::class;
-    private static $_expectedFailMsg = 'Value is not float';
+    private static $_expectedFailMsg = 'Value is not a float.';
 
     /**
      * @inheritdoc

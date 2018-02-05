@@ -13,7 +13,7 @@ use utils\validators\types\base\StringTypeValidator;
 class RuPhoneNumberTypeValidator extends StringTypeValidator
 {
     private static $_pattern = "/^[7|8]\d{10}$/";
-    protected static $_errorMessage = "Value is not phone number (RU)";
+    protected static $_errorMessage = "Value is not a phone number (RU).";
 
     /**
      * Callback for filter_var

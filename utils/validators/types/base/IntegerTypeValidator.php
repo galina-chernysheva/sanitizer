@@ -12,7 +12,7 @@ use utils\exceptions\TypeValidationException;
  */
 class IntegerTypeValidator implements ITypeValidator
 {
-    private static $_errorMessage = "Value is not integer";
+    private static $_errorMessage = "Value is not an integer.";
 
     /**
      * @inheritdoc

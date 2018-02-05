@@ -13,7 +13,7 @@ use utils\validators\types\base\AssocArrayTypeValidator;
 class TestAssocArrayTypeValidator extends BaseTestTypeValidator
 {
     protected static $typeClass = AssocArrayTypeValidator::class;
-    private static $_expectedFailMsg = 'Value is not associative array';
+    private static $_expectedFailMsg = 'Value is not an associative array.';
 
     /**
      * @inheritdoc

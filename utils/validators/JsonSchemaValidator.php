@@ -111,16 +111,16 @@ class JsonSchemaValidator
 
         $data = json_decode($rawData);
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new JsonSchemaValidationException('Invalid JSON data: ' . json_last_error_msg());
+            throw new JsonSchemaValidationException('Invalid JSON data: ' . json_last_error_msg() . '.');
         }
         $schema = json_decode($schema, true);
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new JsonSchemaValidationException('Invalid JSON schema: ' . json_last_error_msg());
+            throw new JsonSchemaValidationException('Invalid JSON schema: ' . json_last_error_msg() . '.');
         }
 
         if (!empty((array)$data)) {
             if (empty($schema)) {
-                throw new JsonSchemaValidationException('JSON data schema is not defined');
+                throw new JsonSchemaValidationException('JSON data schema is not defined.');
             }
 
             $this->_validateType($schema, $data, $errors);
@@ -145,13 +145,12 @@ class JsonSchemaValidator
         $typeName = $schema['type'] ?? null;
         if (is_null($typeName)) {
             throw new JsonSchemaValidationException(
-                (!is_null($paramName) ? "{$paramName}: " : '')
-                    . 'Type of parameter if not defined ("type" key in parameter type description)'
+                (!is_null($paramName) ? "{$paramName}: " : '') . 'The type of an element is not defined.'
             );
         }
         if (!array_key_exists($typeName, $this->_typesMap)) {
             throw new JsonSchemaValidationException(
-                (!is_null($paramName) ? "{$paramName}: " : '') . "Type \"{$typeName}\" is not supported"
+                (!is_null($paramName) ? "{$paramName}: " : '') . "Type \"{$typeName}\" is not supported."
             );
         }
 
@@ -205,12 +204,15 @@ class JsonSchemaValidator
         if (!is_array($itemsDescr)) {
             throw new JsonSchemaValidationException(
                 (!is_null($paramName) ? "{$paramName}: " : '') .
-                'Type description (schema) of values must be array of form [type => .., properties?: {..}, items? => [..]]'
+                'The type description of values must be an array of form [type => .., properties?: {..}, items? => [..]].'
             );
         }
 
         foreach ($value as $idx => &$itemValue) {
-            $idxParamName = !is_null($paramName) ? "{$paramName}[{$idx}]" : $idx;
+            $idxParamName = "[{$idx}]";
+            if (!is_null($paramName)) {
+                $idxParamName = "{$paramName}{$idxParamName}";
+            }
             $this->_validateType($itemsDescr, $itemValue, $errors, $idxParamName);
         }
     }
@@ -246,7 +248,7 @@ class JsonSchemaValidator
             if (!is_array($itemsDescr)) {
                 throw new JsonSchemaValidationException(
                     (!is_null($paramName) ? "{$paramName}: " : '') .
-                    'Type description (schema) of properties values must be array of form [type => .., properties?: {..}, items? => [..]]'
+                    'The type description of properties values must be an array of form [type => .., properties?: {..}, items? => [..]].'
                 );
             }
 
@@ -261,14 +263,14 @@ class JsonSchemaValidator
         else {
             foreach ($propertiesDescr as $propName => $propSchema) {
                 if (!property_exists($value, $propName)) {
-                    $errors[] = "{$paramName}: Property \"{$propName}\" is not defined";
+                    $errors[] = "{$paramName}: Property \"{$propName}\" is not defined.";
                     continue;
                 }
                 $propParamName = !is_null($paramName) ? "{$paramName}[{$propName}]" : $propName;
                 if (!is_array($propSchema)) {
                     throw new JsonSchemaValidationException(
                         "{$propParamName}: " .
-                        'Type description (schema) of property value must be array of form [type => .., properties?: {..}, items? => [..]]'
+                        'The type description of property value must be an array of form [type => .., properties?: {..}, items? => [..]].'
                     );
                 }
                 $this->_validateType($propSchema, $value->$propName, $errors, $propParamName);

@@ -12,7 +12,7 @@ use utils\exceptions\TypeValidationException;
  */
 class StringTypeValidator implements ITypeValidator
 {
-    protected static $_errorMessage = "Value is not string";
+    protected static $_errorMessage = "Value is not a string.";
 
     /**
      * @inheritdoc

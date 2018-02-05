@@ -12,7 +12,7 @@ use utils\exceptions\TypeValidationException;
  */
 class IndexedArrayTypeValidator implements ITypeValidator
 {
-    private static $_errorMessage = "Value is not indexed array";
+    private static $_errorMessage = "Value is not an indexed array.";
 
     /**
      * @inheritdoc

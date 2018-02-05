@@ -12,7 +12,7 @@ use utils\exceptions\TypeValidationException;
  */
 class AssocArrayTypeValidator implements ITypeValidator
 {
-    private static $_errorMessage = "Value is not associative array";
+    private static $_errorMessage = "Value is not an associative array.";
 
     /**
      * @inheritdoc

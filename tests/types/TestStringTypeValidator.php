@@ -13,7 +13,7 @@ use utils\validators\types\base\StringTypeValidator;
 class TestStringTypeValidator extends BaseTestTypeValidator
 {
     protected static $typeClass = StringTypeValidator::class;
-    private static $_expectedFailMsg = 'Value is not string';
+    private static $_expectedFailMsg = 'Value is not a string.';
 
     /**
      * @inheritdoc

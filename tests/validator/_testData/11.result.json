@@ -1,9 +1,9 @@
 {
     "errors": [
-        "obj[objProp1]: Value is not integer",
-        "obj[objProp3][5]: Value is not string",
-        "arrFloat: Value is not indexed array",
-        "objInt[2018-01-31]: Value is not integer"
+        "obj[objProp1]: Value is not an integer.",
+        "obj[objProp3][5]: Value is not a string.",
+        "arrFloat: Value is not an indexed array.",
+        "objInt[2018-01-31]: Value is not an integer."
     ],
     "data": {
         "obj": {

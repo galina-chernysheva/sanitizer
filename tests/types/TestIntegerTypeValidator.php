@@ -13,7 +13,7 @@ use utils\validators\types\base\IntegerTypeValidator;
 class TestIntegerTypeValidator extends BaseTestTypeValidator
 {
     protected static $typeClass = IntegerTypeValidator::class;
-    private static $_expectedFailMsg = 'Value is not integer';
+    private static $_expectedFailMsg = 'Value is not an integer.';
 
     /**
      * @inheritdoc

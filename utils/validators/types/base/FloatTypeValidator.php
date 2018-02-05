@@ -12,7 +12,7 @@ use utils\exceptions\TypeValidationException;
  */
 class FloatTypeValidator implements ITypeValidator
 {
-    private static $_errorMessage = "Value is not float";
+    private static $_errorMessage = "Value is not a float.";
 
     /**
      * @inheritdoc
